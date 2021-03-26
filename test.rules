@@ -1,0 +1,2 @@
+alert tcp any any -> any 3399 (content:"login"; content:"Initial"; flowbits:set,bits; flowbits:noalert; )
+alert tcp any any -> any 3399 (msg:"be found"; sid:1000001; pcre:"/(2[0-4]\d|25[0-5]|1\d\d|\d\d?)\.(2[0-4]\d|25[0-5]|1\d\d|\d\d?)\.(2[0-4]\d|25[0-5]|1\d\d|\d\d?)\.(2[0-4]\d|25[0-5]|1\d\d|\d\d?):(\d{1,4}|[1-5]\d{4}|6[0-4]\d{3}|65[0-4]\d{2}|655[0-2]\d|6553[0-5])/"; flowbits:isset,bits; )
